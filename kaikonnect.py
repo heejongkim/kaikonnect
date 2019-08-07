@@ -132,7 +132,8 @@ print "\n\n\nPROGRESS: About to execute command : ",cmd_str_tmp,"\n\n\n"
 os.system(cmd_str_tmp)
 #Move mgf file(s) to output dir... Will feed to Kaiko...
 for each_mgf in glob.glob("*.mgf"):
-    os.rename(each_mgf,os.path.join(full_output_dir,each_mgf))
+    shutil.move(each_mgf,os.path.join(full_output_dir,each_mgf))
+    #os.rename(each_mgf,os.path.join(full_output_dir,each_mgf))
 os.chdir(starting_dir)
 
 print "\n\n\nPROGRESS: All done with mgf conversion from mzML!"
